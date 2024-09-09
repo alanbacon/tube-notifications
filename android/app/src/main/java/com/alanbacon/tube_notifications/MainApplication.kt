@@ -15,16 +15,17 @@ import com.facebook.soloader.SoLoader
 import expo.modules.ApplicationLifecycleDispatcher
 import expo.modules.ReactNativeHostWrapper
 
+import com.alanbacon.tube_notifications.AlarmPackage;
+
 class MainApplication : Application(), ReactApplication {
 
   override val reactNativeHost: ReactNativeHost = ReactNativeHostWrapper(
         this,
         object : DefaultReactNativeHost(this) {
-          override fun getPackages(): List<ReactPackage> {
-            // Packages that cannot be autolinked yet can be added manually here, for example:
-            // packages.add(new MyReactNativePackage());
-            return PackageList(this).packages
-          }
+          override fun getPackages(): List<ReactPackage> =
+            PackageList(this).packages.apply {
+              add(AlarmPackage())
+            }
 
           override fun getJSMainModuleName(): String = ".expo/.virtual-metro-entry"
 
