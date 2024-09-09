@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "251012738796",
+    "project_id": "tube-notification",
+    "storage_bucket": "tube-notification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:251012738796:android:f10b76e88b7940417cffc9",
+        "android_client_info": {
+          "package_name": "com.alanbacon.tube_notifications"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjTPusgSuKX9ZvJkGHZ3ePV79FIXBm6Zs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
