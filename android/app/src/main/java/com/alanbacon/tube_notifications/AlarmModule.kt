@@ -30,11 +30,11 @@ class AlarmModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaM
         val pendingIntent = PendingIntent.getBroadcast(this.context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
 
         // Alarm time
-        val ALARM_DELAY_IN_SECOND = 10
-        val alarmTimeAtUTC = System.currentTimeMillis() + ALARM_DELAY_IN_SECOND * 1_000L
+        val ALARM_DELAY_IN_MILLISECS = 60 * 1_000L
+        val ALARM_REPEAT_PERIOD_MILLISECS = ALARM_DELAY_IN_MILLISECS; // change to AlarmManager.INTERVAL_FIFTEEN_MINUTES
 
         // Set with system Alarm Service
         // Other possible functions: setExact() / setRepeating() / setWindow(), etc
-        alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, alarmTimeAtUTC, pendingIntent)
+        alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, ALARM_DELAY_IN_MILLISECS, ALARM_REPEAT_PERIOD_MILLISECS, pendingIntent)
     }
 }

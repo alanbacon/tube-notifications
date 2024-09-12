@@ -1,12 +1,22 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Button, NativeModules } from "react-native";
+import {
+  registerForPushNotificationsAsync,
+  sendPushNotification,
+} from "./notifications";
+import { useEffect } from "react";
 
 const { AlarmModule } = NativeModules;
 
 export default function App() {
   function onPress() {
+    sendPushNotification("title", "body");
     AlarmModule.createAlarm("myAlarmName");
   }
+
+  useEffect(() => {
+    registerForPushNotificationsAsync();
+  }, []);
 
   return (
     <View style={styles.container}>
